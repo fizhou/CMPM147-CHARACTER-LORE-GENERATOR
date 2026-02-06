@@ -296,20 +296,20 @@ class LoreGenerator:
         distinctive_features = random.choice(self.distinctive_features)
 
         return CharacterLore(
-            name=name,
-            age=age,
-            archetype=archetype,
-            personality_traits=traits,
-            distinctive_features=distinctive_features,
-            origin=origin,
-            birthplace=birthplace,
-            defining_moments=defining_moments,
-            core_motivation=core_motivation,
-            fatal_flaw=fatal_flaw,
-            greatest_fear=greatest_fear,
-            internal_conflict=internal_conflict,
-            hidden_truth=hidden_truth,
-            key_relationships=key_relationships
+            name = name,
+            age = age,
+            archetype = archetype,
+            personality_traits = traits,
+            distinctive_features = distinctive_features,
+            origin = origin,
+            birthplace = birthplace,
+            defining_moments = defining_moments,
+            core_motivation = core_motivation,
+            fatal_flaw = fatal_flaw,
+            greatest_fear = greatest_fear,
+            internal_conflict = internal_conflict,
+            hidden_truth = hidden_truth,
+            key_relationships = key_relationships
         )
 
 def main():
