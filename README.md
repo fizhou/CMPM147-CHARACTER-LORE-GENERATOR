@@ -39,26 +39,21 @@ A generative tool that creates rich, coherent character backstories with persona
 - **Lyra** (Mysterious Stranger): who appears at crucial moments
 ```
 
-## Quick Start
+## DEMO
 
 ```bash
 python lore_generator.py
 ```
 
-Generates 3 different characters with varied parameters.
+Generates 3 characters with varied parameters.
 
-## Usage
+## Run Program
 
-### Basic Generation
-
-```python
-from lore_generator import LoreGenerator, Archetype, Origin
-
-generator = LoreGenerator()
-lore = generator.generate()
-
-print(lore.to_narrative())
+```bash
+python generate_characters.py
 ```
+
+Generates 10 different characters.
 
 ### Specific Character Types
 
