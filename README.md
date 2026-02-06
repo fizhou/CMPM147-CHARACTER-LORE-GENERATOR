@@ -2,11 +2,11 @@
 A generative tool that creates rich, coherent character backstories with personality traits, motivations, relationships, defining moments, and hidden secrets.
 
 ## What It Generates
-**Idenity**: Name, age, archetype, personality traits, distinctive features
-**Background**: Origin, birthplace
-**Defining Moments**: 1-5 pivotal events that have shaped them
-**Psychology**: Core motivations, fatal flaws, fears, internal conflicts
-**Relationships**: Key people in their life with current status
+- **Identity**: Name, age, archetype, personality traits, distinctive features
+- **Background**: Origin, birthplace
+- **Defining Moments**: 1-5 pivotal events that have shaped them
+- **Psychology**: Core motivations, fatal flaws, fears, internal conflicts
+- **Relationships**: Key people in their life with current status
 
 ## Example Output
 
