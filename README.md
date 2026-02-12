@@ -114,22 +114,6 @@ generator = LoreGenerator(params)
 lore = generator.generate()
 ```
 
-### Custom Parameters
-
-```python
-from lore_generator import LoreParameters
-
-custom_params = LoreParameters(
-    tragedy_weight = 0.9,
-    complexity_level = 5,
-    relationship_density = 4,
-    mystery_factor = 0.6,
-    power_scale = 4
-)
-
-generator = LoreGenerator(custom_params)
-```
-
 ## Archetypes
 
 - **HERO**: Classic protagonist, driven to do good
