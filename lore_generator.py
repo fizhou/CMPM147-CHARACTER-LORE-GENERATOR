@@ -5,7 +5,7 @@ from enum import Enum
 import json
 
 class Archetype(Enum):
-    """Defines the archetype of a character, which can influence generation"""
+    """Defines Character Archetypes"""
     HERO = "Hero"
     ANTIHERO = "Antihero"
     MENTOR = "Mentor"
@@ -16,7 +16,7 @@ class Archetype(Enum):
     SCHOLAR = "Scholar"
 
 class Origin(Enum):
-    """Defines character origins"""
+    """Defines Character Origins"""
     NOBLE = "Noble"
     COMMONER = "Commoner"
     ORPHAN = "Orphan"
@@ -28,7 +28,7 @@ class Origin(Enum):
 
 @dataclass
 class LoreParameters:
-    """Adjustable parameters for lore generation"""
+    """Adjustable Parameters for Lore Generation"""
     tragedy_weight: float = 0.5 # 0-1
     complexity_weight: int = 3 # 1-5
     relationship_weight: int = 2 # 1-5
@@ -37,34 +37,34 @@ class LoreParameters:
 
     @classmethod
     def from_json(cls, filepath: str) -> 'LoreParameters':
-        """Load parameters from JSON file"""
+        """Load Parameters from JSON File"""
         with open(filepath, 'r') as f:
             data = json.load(f)
         return cls(**data)
     
     @classmethod
     def default(cls) -> 'LoreParameters':
-        """Default paameters"""
+        """Default Parameters"""
         return cls()
 
     @classmethod
     def tragic_hero(cls) -> 'LoreParameters':
-        """Preset for tragic hero archetype"""
+        """Preset for Tragic Hero Archetype"""
         return cls(tragedy_weight = 0.8, complexity_weight = 4, mystery_factor = 0.2)
 
     @classmethod
     def mysterious_stranger(cls) -> 'LoreParameters':
-        """Preset for mysterious stranger archetype"""
+        """Preset for Mysterious Stranger Archetype"""
         return cls(complexity_weight = 2, relationship_weight = 1, mystery_factor = 0.7)
 
     @classmethod
     def epic_villain(cls) -> 'LoreParameters':
-        """Preset for epic villain archetype"""
+        """Preset for Epic Villain Archetype"""
         return cls(tragedy_weight = 0.6, complexity_weight = 5, relationship_weight = 3, power_scale = 5)
 
 @dataclass
 class CharacterLore:
-    """Generated lore output"""
+    """Generated Lore Output"""
     name: str
     age: int
     archetype: Archetype
@@ -85,7 +85,7 @@ class CharacterLore:
     key_relationships: List[Dict[str, str]]
 
     def to_narrative(self) -> str:
-        """Converts lore to narrative format"""
+        """Converts Lore to Narrative Format"""
         sections = []
 
         sections.append(f"# {self.name}\n")
@@ -122,14 +122,14 @@ class CharacterLore:
         return "\n".join(sections)
 
 class LoreGenerator:
-    """Main character lore generator"""
+    """Main Character Lore Generator"""
 
     def __init__(self, params: Optional[LoreParameters] = None):
         self.params = params or LoreParameters.default()
         self._load_generation_data()
 
     def _load_generation_data(self):
-        """Load all the generation data"""
+        """Load All the Generation Data"""
 
         # Names by origin
         self.names = {
@@ -150,14 +150,106 @@ class LoreGenerator:
 
         # Motivations by archetype
         self.motivations = {
-            Archetype.HERO: ["to protect the innocent", "to seek justice", "to save the world", "to redeem themselves", "to fulfill a prophecy"],
-            Archetype.ANTIHERO: ["to survive", "to gain power", "to seek revenge", "to find meaning", "to challenge the status quo", "to escape their past", "to prove themselves"],
-            Archetype.MENTOR: ["to guide the next generation", "to impart wisdom", "to atone for past mistakes", "to protect their legacy", "to find a worthy successor"],
-            Archetype.TRICKSTER: ["to cause chaos", "to challenge authority", "to entertain themselves", "to expose hypocrisy", "to outsmart others"],
-            Archetype.GUARDIAN: ["to protect a sacred place", "to guard a powerful artifact", "to defend their people", "to uphold a sacred duty", "to prevent a catastrophe"],
-            Archetype.VILLAIN: ["to conquer the world", "to destroy their enemies", "to gain ultimate power", "to enact revenge", "to reshape reality", "to prove their superiority"],
-            Archetype.OUTCAST: ["to find acceptance", "to seek revenge on those who rejected them", "to discover their true identity", "to create a new home", "to prove their worth"],
-            Archetype.SCHOLAR: ["to uncover hidden knowledge", "to solve a great mystery", "to push the boundaries of understanding", "to preserve ancient wisdom", "to achieve intellectual greatness"]
+            Archetype.HERO: [
+                "to protect the innocent", 
+                "to seek justice", 
+                "to save the world", 
+                "to redeem themselves", 
+                "to fulfill a prophecy", 
+                "to reunite with a lost loved one", 
+                "to overcome a great evil", 
+                "to prove their worth", 
+                "to find true love", 
+                "to achieve greatness", 
+                "to right a past wrong", 
+                "to discover their true destiny", 
+                "to protect their family", 
+                "to find meaning in their life"
+                ],
+
+            Archetype.ANTIHERO: [
+                "to survive", 
+                "to gain power", 
+                "to seek revenge", 
+                "to challenge the status quo", 
+                "to escape their past", 
+                "to prove themselves", 
+                "to find their own path", 
+                "to protect someone they care about", 
+                "to achieve a personal goal", 
+                "to defy expectations", 
+                "to find redemption on their own terms", 
+                "to uncover the truth about their origins"
+                ],
+
+            Archetype.MENTOR: [
+                "to guide the next generation", 
+                "to impart wisdom", 
+                "to atone for past mistakes", 
+                "to protect their legacy", 
+                "to find a worthy successor", 
+                "to pass on a secret knowledge", 
+                "to help someone they care about achieve their potential", 
+                "to find meaning in their later years", 
+                "to protect a sacred duty", 
+                "to ensure the survival of a tradition", 
+                "to prepare someone for a great challenge"
+                ],
+
+            Archetype.TRICKSTER: [
+                "to cause chaos", 
+                "to challenge authority", 
+                "to entertain themselves", 
+                "to expose hypocrisy", 
+                "to outsmart others", 
+                "to find amusement in the misfortune of others", 
+                "to disrupt the status quo for fun", 
+                "to pull off a great heist or con", 
+                "to escape from a dangerous situation", 
+                "to create a memorable story about themselves", 
+                "to test the limits of their own cleverness", 
+                "to find a way to get what they want without getting caught"
+                ],
+
+            Archetype.GUARDIAN: [
+                "to protect a sacred place", 
+                "to guard a powerful artifact", 
+                "to defend their people", 
+                "to uphold a sacred duty", 
+                "to prevent a catastrophe", 
+                "to ensure the safety of a vulnerable person or group", 
+                "to protect a secret that cannot yet be exposed", 
+                "to defend a cause they believe in"
+                ],
+
+            Archetype.VILLAIN: [
+                "to conquer the world", 
+                "to destroy their enemies", 
+                "to gain ultimate power", 
+                "to enact revenge", 
+                "to reshape reality", 
+                "to prove their superiority", 
+                "to achieve immortality," 
+                "to create their own vision of order", 
+                "to eradicate a group of people they despise", 
+                "to find a way to retailiate against those who undermined them"
+                ],
+
+            Archetype.OUTCAST: [
+                "to find acceptance", 
+                "to seek revenge on those who rejected them", 
+                "to discover their true identity", 
+                "to create a new home", 
+                "to prove their worth"
+            ],
+            
+            Archetype.SCHOLAR: [
+                "to uncover hidden knowledge", 
+                "to solve a great mystery", 
+                "to push the boundaries of understanding", 
+                "to preserve ancient wisdom", 
+                "to achieve intellectual greatness"
+            ]
         }
 
         # Birthplaces
@@ -225,15 +317,15 @@ class LoreGenerator:
     def generate(self, archetype: Optional[Archetype] = None,
                 origin: Optional[Origin] = None,
                 name: Optional[str] = None) -> CharacterLore:
-        """Generate character lore
+        """Generate Character Lore
         
         Args:
-            archetype: Character archetype (random if None)
-            origin: Character origin (random if None)
-            name: Character name (random if None)
+            Archetype: Character Archetype (random if None)
+            Origin: Character Origin (random if None)
+            Name: Character Name (random if None)
 
         Returns:
-            CharacterLore with complete backstory
+            Character Lore with Complete Backstory
         """
 
         archetype = archetype or random.choice(list(Archetype))
@@ -330,12 +422,12 @@ class LoreGenerator:
         )
 
 def main():
-    """Demo showing lore generation"""
+    """Demo Showing Lore Generation"""
     print("=== Character Lore Generator ===\n")
 
     generator = LoreGenerator()
 
-    print("Generating 3 characters with different parameters...\n")
+    print("Generating 3 Characters with Different Parameters...\n")
     print("\n" + "="*40 + "\n")
 
     print("\n1. Tragic Hero:\n")
