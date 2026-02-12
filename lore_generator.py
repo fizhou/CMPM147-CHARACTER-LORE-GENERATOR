@@ -133,20 +133,160 @@ class LoreGenerator:
 
         # Names by origin
         self.names = {
-            Origin.NOBLE: ["Alaric", "Isolde", "Cedric", "Evelyn", "Vivianne", "Lucius", "Basilia", "Gareth"],
-            Origin.COMMONER: ["Tom", "Sarah", "Jack", "Emily", "Charlie", "Sophie", "Harry", "Olivia", "Fiona"],
-            Origin.ORPHAN: ["Liam", "Ava", "Noah", "Mia", "Ethan", "Isabella", "Mason", "Sophia"],
-            Origin.EXILE: ["Darius", "Selene", "Kane", "Luna", "Riven", "Nyssa", "Zane", "Aria"],
-            Origin.CRIMINAL: ["Raven", "Viper", "Shadow", "Blaze", "Jinx", "Scar", "Scarlet", "Rogue"],
-            Origin.MILITARY: ["Marcus", "Valeria", "Gaius", "Octavia", "Drake", "Vi", "Maximus", "Serena"],
-            Origin.ACADEMIC: ["Edison", "Curie", "Tesla", "Hypatia", "Galileo", "Sage", "Newton", "Ada"],
-            Origin.MYSTIC: ["Orion", "Seraphina", "Zephyr", "Nyx", "Solstice", "Luna", "Phoenix", "Celeste"]
+            Origin.NOBLE: [
+                "Alaric", 
+                "Isolde", 
+                "Cedric", 
+                "Evelyn", 
+                "Vivianne", 
+                "Lucius", 
+                "Basilia", 
+                "Gareth"
+                ],
+
+            Origin.COMMONER: [
+                "Tom", 
+                "Sarah", 
+                "Jack", 
+                "Emily", 
+                "Charlie", 
+                "Sophie", 
+                "Harry", 
+                "Olivia", 
+                "Fiona"
+                ],
+
+            Origin.ORPHAN: [
+                "Liam", 
+                "Ava", 
+                "Noah", 
+                "Mia", 
+                "Ethan", 
+                "Isabella", 
+                "Mason", 
+                "Sophia"
+                ],
+
+            Origin.EXILE: [
+                "Darius", 
+                "Selene", 
+                "Kane", 
+                "Luna", 
+                "Riven", 
+                "Nyssa", 
+                "Zane", 
+                "Aria"
+                ],
+
+            Origin.CRIMINAL: [
+                "Raven", 
+                "Viper", 
+                "Shadow", 
+                "Blaze", 
+                "Jinx", 
+                "Scar", 
+                "Scarlet", 
+                "Rogue"
+                ],
+
+            Origin.MILITARY: [
+                "Marcus", 
+                "Valeria", 
+                "Gaius", 
+                "Octavia", 
+                "Drake", 
+                "Vi", 
+                "Maximus", 
+                "Serena"
+                ],
+
+            Origin.ACADEMIC: [
+                "Edison", 
+                "Curie", 
+                "Tesla", 
+                "Hypatia", 
+                "Galileo", 
+                "Sage", 
+                "Newton", 
+                "Ada"
+                ],
+
+            Origin.MYSTIC: [
+                "Orion", 
+                "Seraphina", 
+                "Zephyr", 
+                "Nyx", 
+                "Solstice", 
+                "Luna", 
+                "Phoenix", 
+                "Celeste"
+                ]
         }
 
         # Personality traits
-        self.personality_positive = ["loyal", "brave", "compassionate", "intelligent", "charismatic", "resilient", "honest", "ambitious", "creative", "optimistic", "adaptable", "courageous", "empathetic", "determined", "resourceful", "wise", "generous", "patient", "diligent", "humble"]
-        self.personality_negative = ["arrogant", "impulsive", "stubborn", "cynical", "jealous", "greedy", "deceitful", "cowardly", "pessimistic", "insecure", "vengeful", "manipulative", "lazy", "short-tempered", "selfish", "reckless", "paranoid", "resentful", "indecisive", "melancholic"]
-        self.personality_neutral = ["curious", "quiet", "reserved", "eccentric", "mysterious", "enigmatic", "stoic", "pragmatic", "analytical", "observant", "cautious", "methodical", "unpredictable", "enigmatic", "enigmatic"]
+        self.personality_positive = [
+            "loyal", 
+            "brave", 
+            "compassionate", 
+            "intelligent", 
+            "charismatic", 
+            "resilient", 
+            "honest", 
+            "ambitious", 
+            "creative", 
+            "optimistic", 
+            "adaptable", 
+            "courageous", 
+            "empathetic", 
+            "determined", 
+            "resourceful", 
+            "wise", 
+            "generous", 
+            "patient", 
+            "diligent",
+            "humble"
+        ]
+        
+        self.personality_negative = [
+            "arrogant", 
+            "impulsive", 
+            "stubborn", 
+            "cynical", 
+            "jealous", 
+            "greedy", 
+            "deceitful", 
+            "cowardly", 
+            "pessimistic", 
+            "insecure", 
+            "vengeful", 
+            "manipulative", 
+            "lazy", 
+            "short-tempered", 
+            "selfish", 
+            "reckless", 
+            "paranoid", 
+            "resentful", 
+            "indecisive", 
+            "melancholic"
+        ]
+        
+        self.personality_neutral = [
+            "curious", 
+            "quiet", 
+            "reserved", 
+            "eccentric", 
+            "mysterious", 
+            "enigmatic", 
+            "stoic", 
+            "pragmatic", 
+            "analytical", 
+            "observant", 
+            "cautious", 
+            "methodical", 
+            "unpredictable", 
+            "enigmatic", 
+            "enigmatic"
+        ]
 
         # Motivations by archetype
         self.motivations = {
@@ -242,7 +382,7 @@ class LoreGenerator:
                 "to create a new home", 
                 "to prove their worth"
             ],
-            
+
             Archetype.SCHOLAR: [
                 "to uncover hidden knowledge", 
                 "to solve a great mystery", 
@@ -254,27 +394,73 @@ class LoreGenerator:
 
         # Birthplaces
         self.birthplaces = [
-            "a bustling city", "a remote village", "a noble estate", "a war-torn region", "a mystical forest", "a coastal town", "a hidden sanctuary", "a desolate wasteland",
-            "a mountain stronghold", "a nomadic tribe", "a secret society", "a magical academy", "a forgotten ruin", "a prosperous kingdom", "a cursed land", "a distant planet",
-            "a floating city", "a subterranean cavern", "a celestial realm", "a post-apocalyptic world", "a parallel dimension"
+            "a bustling city", 
+            "a remote village", 
+            "a noble estate", 
+            "a war-torn region", 
+            "a mystical forest", 
+            "a coastal town", 
+            "a hidden sanctuary", 
+            "a desolate wasteland",
+            "a mountain stronghold", 
+            "a nomadic tribe", 
+            "a secret society", 
+            "a magical academy", 
+            "a forgotten ruin", 
+            "a prosperous kingdom", 
+            "a cursed land", 
+            "a distant planet",
+            "a floating city", 
+            "a subterranean cavern", 
+            "a celestial realm", 
+            "a post-apocalyptic world", 
+            "a parallel dimension"
         ]
 
         # Defining moments
         self.tragedy_moments = [
-            "witnessing the death of a loved one", "being betrayed by a close friend", "suffering a great loss", "facing a life-threatening illness", "enduring a traumatic event",
-            "being exiled from their home", "losing everything they hold dear", "failing to save someone important", "being falsely accused of a crime", "experiencing a devastating defeat"
-            "uncovering a dark family secret", "being betrayed by a mentor", "facing a moral dilemma that leads to tragedy", "sacrificing something precious for the greater good", "being manipulated into causing harm to others"
+            "witnessing the death of a loved one", 
+            "being betrayed by a close friend", 
+            "suffering a great loss", 
+            "facing a life-threatening illness", 
+            "enduring a traumatic event",
+            "being exiled from their home", 
+            "losing everything they hold dear", 
+            "failing to save someone important", 
+            "being falsely accused of a crime", 
+            "experiencing a devastating defeat",
+            "uncovering a dark family secret", 
+            "being betrayed by a mentor", 
+            "facing a moral dilemma that leads to tragedy", 
+            "sacrificing something precious for the greater good", 
+            "being manipulated into causing harm to others"
         ]
 
         self.triumph_moments = [
-            "saving someone from danger", "overcoming a great obstacle", "achieving a lifelong dream", "defeating a powerful enemy", "uniting warring factions",
-            "discovering a hidden talent", "forming a powerful alliance", "outsmarting a formidable opponent", "surviving against all odds", "redeeming themselves in the eyes of others"
-            "uncovering a long-lost artifact that changes the course of history", "sacrificing their own happiness for the greater good and being celebrated as a hero", "outwitting a cunning adversary and emerging victorious against all odds"
+            "saving someone from danger", 
+            "overcoming a great obstacle", 
+            "achieving a lifelong dream", 
+            "defeating a powerful enemy", 
+            "uniting warring factions",
+            "discovering a hidden talent", 
+            "forming a powerful alliance", 
+            "outsmarting a formidable opponent", 
+            "surviving against all odds", 
+            "redeeming themselves in the eyes of others",
+            "uncovering a long-lost artifact that changes the course of history", 
+            "sacrificing their own happiness for the greater good and being celebrated as a hero", 
+            "outwitting a cunning adversary and emerging victorious against all odds"
         ]
 
         self.revelation_moments = [
-            "discovering a hidden truth about their past", "realizing they were manipulated by someone they trusted", "uncovering a conspiracy that changes their worldview", "learning a shocking secret about their family", "realizing they have a hidden power or destiny"
-            "discovering that their greatest enemy is actually a close friend or family member", "realizing that their core motivation is based on a false premise and having to reevaluate their goals", "uncovering a hidden aspect of their identity that challenges everything they thought they knew about themselves"
+            "discovering a hidden truth about their past", 
+            "realizing they were manipulated by someone they trusted", 
+            "uncovering a conspiracy that changes their worldview", 
+            "learning a shocking secret about their family", 
+            "realizing they have a hidden power or destiny",
+            "discovering that their greatest enemy is actually a close friend or family member", 
+            "realizing that their core motivation is based on a false premise and having to reevaluate their goals", 
+            "uncovering a hidden aspect of their identity that challenges everything they thought they knew about themselves"
         ]
 
         # Key relationships
@@ -289,29 +475,62 @@ class LoreGenerator:
         ]
 
         self.distinctive_features = [
-            "a prominent scar across their face", "a unique birthmark in the shape of a star", "piercing green eyes that seem to see through people", "a distinctive tattoo that holds personal significance",
-            "an unusual hairstyle that sets them apart", "a prosthetic limb that they have adapted to use with great skill", "a distinctive way of dressing that reflects their personality", "a unique accent or way of speaking",
-            "a physical deformity that they have learned to embrace as part of their identity", "a signature piece of jewelry that they always wear", "a distinctive laugh that is instantly recognizable", "a unique mannerism that others find endearing or unsettling"
+            "a prominent scar across their face", 
+            "a unique birthmark in the shape of a star", 
+            "piercing green eyes that seem to see through people", 
+            "a distinctive tattoo that holds personal significance",
+            "an unusual hairstyle that sets them apart",
+            "a prosthetic limb that they have adapted to use with great skill", 
+            "a distinctive way of dressing that reflects their personality", 
+            "a unique accent or way of speaking",
+            "a physical deformity that they have learned to embrace as part of their identity", 
+            "a signature piece of jewelry that they always wear", 
+            "a distinctive laugh that is instantly recognizable", 
+            "a unique mannerism that others find endearing or unsettling"
         ]
 
         self.fatal_flaws = [
-            "pride that blinds them to their own weaknesses", "a quick temper that leads to rash decisions", "a tendency to trust the wrong people", "an obsession with revenge that consumes them", "a fear of abandonment that causes them to push others away",
-            "a need for control that leads to micromanaging and alienating allies", "a tendency to take unnecessary risks in pursuit of their goals", "a deep-seated insecurity that undermines their confidence", "a stubborn refusal to change their ways even when it's clear they are wrong"
+            "pride that blinds them to their own weaknesses", 
+            "a quick temper that leads to rash decisions", 
+            "a tendency to trust the wrong people", 
+            "an obsession with revenge that consumes them", 
+            "a fear of abandonment that causes them to push others away",
+            "a need for control that leads to micromanaging and alienating allies", 
+            "a tendency to take unnecessary risks in pursuit of their goals", 
+            "a deep-seated insecurity that undermines their confidence", 
+            "a stubborn refusal to change their ways even when it's clear they are wrong"
         ]
 
         self.greatest_fears = [
-            "the loss of a loved one", "being alone", "failure", "betrayal", "death",
-            "losing their sense of identity", "being powerless to protect those they care about", "facing the consequences of their actions", "being forgotten or erased from history"
+            "the loss of a loved one", 
+            "being alone", 
+            "failure", 
+            "betrayal", 
+            "death",
+            "losing their sense of identity", 
+            "being powerless to protect those they care about", 
+            "facing the consequences of their actions", 
+            "being forgotten or erased from history"
         ]
 
         self.internal_conflicts = [
-            "struggling between their desire for revenge and their need for redemption", "torn between their loyalty to their family and their personal ambitions", "grappling with feelings of guilt over past mistakes while trying to move forward", "torn between their desire for power and their fear of losing themselves in the process",
-            "struggling to reconcile their public persona with their true self", "torn between their desire for acceptance and their need for independence", "grappling with feelings of inadequacy while trying to prove themselves to others"
+            "struggling between their desire for revenge and their need for redemption", 
+            "torn between their loyalty to their family and their personal ambitions", 
+            "grappling with feelings of guilt over past mistakes while trying to move forward", 
+            "torn between their desire for power and their fear of losing themselves in the process",
+            "struggling to reconcile their public persona with their true self", 
+            "torn between their desire for acceptance and their need for independence", 
+            "grappling with feelings of inadequacy while trying to prove themselves to others"
         ]
 
         self.hidden_truths = [
-            "they are the heir to a powerful and dangerous legacy that they were unaware of", "they have a hidden talent or ability that they have yet to discover", "they were manipulated into their current situation by someone they trusted", "they have a secret past that they have been trying to keep hidden",
-            "they are connected to a larger conspiracy or plot that they are only beginning to uncover", "they have a hidden connection to a powerful figure or organization that they are unaware of", "they are destined for a great and dangerous fate that they have been trying to avoid"
+            "they are the heir to a powerful and dangerous legacy that they were unaware of", 
+            "they have a hidden talent or ability that they have yet to discover", 
+            "they were manipulated into their current situation by someone they trusted", 
+            "they have a secret past that they have been trying to keep hidden",
+            "they are connected to a larger conspiracy or plot that they are only beginning to uncover", 
+            "they have a hidden connection to a powerful figure or organization that they are unaware of", 
+            "they are destined for a great and dangerous fate that they have been trying to avoid"
         ]
 
     def generate(self, archetype: Optional[Archetype] = None,
