@@ -111,10 +111,10 @@ class CharacterLore:
         sections.append(f"Greatest Fear: {self.greatest_fear}")
         sections.append(f"Internal Conflict: {self.internal_conflict}")
         if self.hidden_truth:
-            sections.append(f"Hidden Truth: {self.hidden_truth}\n")
+            sections.append(f"Hidden Truth: {self.hidden_truth}")
 
         if self.key_relationships:
-            sections.append("## Relationships")
+            sections.append("\n## Relationships")
             for rel in self.key_relationships:
                 sections.append(f"- **{rel['name']}** ({rel['relationship']}): {rel['status']}")
             sections.append("")
@@ -272,13 +272,30 @@ class LoreGenerator:
 
         defining_moments = []
         num_moments = self.params.complexity_weight
+        seen_moments = set()
+        attempts = 0
+        max_attempts = max(10, num_moments * 10)
 
-        for i in range(num_moments):
+        while len(defining_moments) < num_moments and attempts < max_attempts:
             if random.random() < self.params.tragedy_weight:
                 moment = random.choice(self.tragedy_moments)
             else:
                 moment = random.choice(self.revelation_moments)
-            defining_moments.append(moment)
+            if moment not in seen_moments:
+                seen_moments.add(moment)
+                defining_moments.append(moment)
+            attempts += 1
+
+        if len(defining_moments) < num_moments:
+            remaining = [
+                moment for moment in (self.tragedy_moments + self.revelation_moments)
+                if moment not in seen_moments
+            ]
+            for moment in remaining:
+                if len(defining_moments) >= num_moments:
+                    break
+                seen_moments.add(moment)
+                defining_moments.append(moment)
         
         key_relationships = []
         num_relationships = self.params.relationship_weight
