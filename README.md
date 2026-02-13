@@ -39,36 +39,21 @@ A generative tool that creates rich, coherent character backstories with persona
 - **Lyra** (Mysterious Stranger): who appears at crucial moments
 ```
 
-## DEMO
+## Run Demo Program
 
 ```bash
 python lore_generator.py
 ```
 
-Generates 3 characters with varied parameters.
+Generates 3 demo characters with varied parameters.
 
-## Run Program
+## Run Main Program
 
 ```bash
 python generate_characters.py
 ```
 
-Generates 10 different characters.
-
-### Specific Character Types
-
-```python
-lore = generator.generate(
-    archetype = Archetype.HERO,
-    origin = Origin.NOBLE,
-    name = "Ekara"
-)
-
-lore = generator.generate(
-    archetype = Archetype.VILLIAN,
-    origin = Origin.MYSTIC
-)
-```
+Generates 10 different characters in the terminal and in a separate, dedicated file.
 
 ## Adjustable Parameters
 
@@ -113,32 +98,5 @@ params = LoreParameters.epic_villain()
 generator = LoreGenerator(params)
 lore = generator.generate()
 ```
-
-## Archetypes
-
-- **HERO**: Classic protagonist, driven to do good
-- **ANTIHERO**: Morally gray, questionable methods
-- **MENTOR**: Wise guide, often haunted by past
-- **TRICKSTER**: Chaos agent, unpredictable
-- **GUARDIAN**: Protector, bound by duty
-- **VILLAIN**: Antagonist, complex motivations
-- **OUTCAST**: Rejected by society, seeking belonging
-- **SCHOLAR**: Knowledge-seeker, intellectual
-
-Each archetype has unique motivations and flaws that influence generation.
-
-## Origins
-
-- **NOBLE**: Born into privilege and power
-- **COMMON**: Ordinary background, simple roots
-- **ORPHAN**: Lost family, self-made
-- **EXILE**: Cast out, marked as outsider
-- **CRIMINAL**: Underworld upbringing
-- **MILITARY**: Martial discipline, war-shaped
-- **ACADEMIC**: Scholarly background, book-learned
-- **MYSTIC**: Supernatural abilities, set apart
-
-Origins affect name selection and early life narrative.
-
 
 Created by Fiona Zhou for CMPM 147 Generative Design
