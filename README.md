@@ -35,7 +35,7 @@ A generative tool that creates rich, coherent character backstories with persona
 **Internal Conflict**: afraid to trust, but desperate for connection
 
 ## Key Relationships
-- **Cutter** (Partner in Crime): who shares thr dangerous path
+- **Cutter** (Partner in Crime): who shares a dangerous path
 - **Lyra** (Mysterious Stranger): who appears at crucial moments
 ```
 
@@ -56,6 +56,8 @@ python generate_characters.py
 Generates 10 different characters in the terminal and in a separate, dedicated file.
 
 ## Adjustable Parameters
+
+Adjustable parameters include core parameters and the number of characters generated. They are adjustable in the **generate_characters.py** file.
 
 ### Core Parameters
 
@@ -80,23 +82,14 @@ Generates 10 different characters in the terminal and in a separate, dedicated f
    - Character's power/influence level
    - Affects goal descriptions and scope 
 
-### Parameter Presets
+### Number of Characters Generated
 
-```python
-# tragic hero
-params = LoreParameters.tragic_hero()
-# tragedy_weight = 0.8, complexity_level = 4, mystery_factor = 0.2
-
-# mysterious stranger
-params = LoreParameters.mysterious_stranger()
-# mystery_factor = 0.7, complexity_level = 2, relationship_density = 1
-
-# epic villain
-params = LoreParameters.epic_villain()
-# tragedy_weight = 0.6, complexity_level = 5, power_scale = 5
-
-generator = LoreGenerator(params)
-lore = generator.generate()
+```bash
+python num_characters
 ```
+
+## Limitations
+
+This program generates character profiles and lore, with the availability of custom parameters. These parameters are listed above, and are the only parameters meant to be adjusted. This program does allow for specific custom characteristics, for instance, a custom name.
 
 Created by Fiona Zhou for CMPM 147 Generative Design

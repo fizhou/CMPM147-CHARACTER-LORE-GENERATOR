@@ -1,28 +1,44 @@
 """
-Generate multiple character lores
+Generate Multiple Character Lores
 """
 
 from lore_generator import LoreGenerator, LoreParameters, Archetype, Origin
 
-generator = LoreGenerator()
+"""Adjust Parameters Here"""
 
-print("=== Generating 10 Random Characters ===\n")
+params = LoreParameters(
+    tragedy_weight = 0.5,
+    complexity_weight = 3,
+    relationship_weight = 2,
+    mystery_factor = 0.3,
+    power_scale = 3
+)
 
-for i in range(10):
-    print(f"\n{'='*70}")
-    print(f"CHARACTER {i+1}")
-    print('='*70 + "\n")
+generator = LoreGenerator(params)
+
+"""Adjust Number of Characters to Generate Here"""
+
+num_characters = 20
+
+print(f"=== Generating {num_characters} Random Characters ===\n")
+
+all_narratives = []
+
+for i in range(num_characters):
+    print(f"\nGenerating Character {i+1}...")
     
     lore = generator.generate()
-    
-    print(lore.to_narrative())
-    
-    filename = f"character_{i+1}_{lore.name}.md"
-    with open(filename, 'w') as f:
-        f.write(lore.to_narrative())
-    
-    print(f"\n[Saved to {filename}]")
+    narrative = lore.to_narrative()
+    all_narratives.append(narrative)
 
-print("\n" + "="*70)
-print("Done! Generated 10 characters.")
-print("Check the .md files in this directory to see each character.")
+output_file = "all_characters.md"
+with open(output_file, "w") as f:
+    f.write(f"# Generated Characters ({num_characters} Total)\n\n")
+    f.write("---\n\n")
+    for i, narrative in enumerate(all_narratives, 1):
+        f.write(f"## Character {i}\n\n")
+        f.write(narrative)
+        f.write("\n\n---\n\n")
+
+print(f"\nDone! Generated {num_characters} characters.")
+print(f"All characters saved to {output_file}.")

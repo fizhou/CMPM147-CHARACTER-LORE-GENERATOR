@@ -116,7 +116,7 @@ class CharacterLore:
         if self.key_relationships:
             sections.append("\n## Relationships")
             for rel in self.key_relationships:
-                sections.append(f"- **{rel['name']}** ({rel['relationship']}): {rel['status']}")
+                sections.append(f"- **{rel['name']}** ({rel['role']}): {rel['description']}")
             sections.append("")
         
         return "\n".join(sections)
@@ -728,28 +728,109 @@ class LoreGenerator:
 
         # Key relationships
         self.relationships = [
-            {"name": "A childhood friend", "relationship": "ally", "status": "complicated"},
-            {"name": "A mentor figure", "relationship": "mentor", "status": "deceased"},
-            {"name": "A rival", "relationship": "rival", "status": "active"},
-            {"name": "A love interest", "relationship": "romantic", "status": "estranged"},
-            {"name": "A family member", "relationship": "family", "status": "distant"},
-            {"name": "An old enemy", "relationship": "antagonist", "status": "defeated"},
-            {"name": "A mysterious stranger", "relationship": "unknown", "status": "ambiguous"}
+            {
+                "role": "Childhood Friend",
+                "descriptions": [
+                    "who has been by their side through the best and worst of times",
+                    "who knows all their secrets",
+                    "who has always believed in them even when no one else did",
+                    "who they lost touch with after a small argument that turned into a long-standing rift",
+                    "who they reconnected with after years of separation and found that they had changed in ways they never expected",
+                    "who they had a falling out with over a miscommunication where neither were capable of admitting they were wrong and it led to a permanent estrangement",
+                    "who helped them get through their darkest moments",
+                    "who they were never super close with, but always had a friendly relationship with and they always looked out for each other in small ways",
+                    "who they had a brief romantic relationship with that ended amicably but they still care for each other deeply",
+                    "who they had a brief romantic relationship with that ended badly and they haven't spoken since",
+                ]
+            },
+
+            {
+                "role": "Mentor",
+                "descriptions": [
+                    "who taught them everything they know and shaped who they are today",
+                    "who they looked up to and wanted to be like, but they tragically lost them and they have never been able to replace that influence in their life",
+                    "who made them feel capable of more than just surviving and inspired them to pursue something greater than what has been expected of them",
+                    "who they trusted wholeheartedly, but chose to part ways after a major disagreement that they could never resolve or communicate about effectively",
+                    "who they viewed as a parental figure and has continued to stay by their side as a source of comfort, support, and guidance throughout their life",
+                    "who forced them to confront their deepest fears in order to become stronger, and able to withstand the challenges they would undeniably face in the future",
+                    "who committed their life to ensuring their survival and success, even at great personal cost",
+                    "who encouraged them to embrace their abilities and potential, unintentionally leading them down a path that has caused them great pain and suffering"
+                ]
+            },
+
+            {
+                "role": "Partner in Crime",
+                "descriptions": [
+                    "who they met on a random adventure and they just clicked, becoming inseparable partners in crime and mischief",
+                    "who they met in a moment of chaos and they found peace in each other's company, forming a bond that has lasted through vast distances and long periods of separation",
+                    "who they share a similar outlook on life with, finding comfort in someone who is so similar",
+                    "who they would give their life for, but they have a complicated relationship with because they are so similar",
+                    "who they can fully trust with their life, but can never fully open up emotionally to",
+                    "who they share a similar past with, but they have a complicated realationship because of how they eventually grew up in different directions and situations",
+                    "who they didn't trust at first, until they were in a situation where they had to rely on each other completely",
+                    "who they met through a mutual friend, and quickly formed a deep understanding over the tragic events they have both experienced in their lives"
+                ]    
+            },
+
+            {
+                "role": "Rival",
+                "descriptions": [
+                    "who indirectly pushes them to be better by being a constant source of competition and comparison",
+                    "who wants everything they have and will stop at nothing to get it, making them a constant low-level threat and bothersome presence in their life",
+                    "who was once a close friend, but jealousy and misunderstandings drove them apart and they have been bitter rivals ever since",
+                    "who they used to look up to, but they have become brainwashed by a toxic ideology and is no longer capable of recognizing right from wrong",
+                    "who they used to look up to, but they have become corrupted by power and greed",
+                    "who they used to view as family, but they betrayed them in an unforgivable manner, and nothing can repair the damage",
+                    "who seeks to destroy them and everything they care about, but underneath it all they hold a small fragment of admiration from the past"
+                ]    
+            },
+
+            {
+                "role": "Love Interest",
+                "descriptions": [
+                    "who they met on a random adventure, and became inseparable partners in love and life, sharing an unbreakable bond that will last generations",
+                    "who they will lay down their life for without a second thought",
+                    "who makes their heart feel full, alive, and protected, in spite of the harsh and cruel world surrounding them",
+                    "who uplifts their dreams and ambitions, encouraging them to be the best version of themselves while still accepting their flaws and imperfections",
+                    "who reminds them that they are more than just the expectations and burdens they carry",
+                    "who walks beside them through the darkest, toughest times, and makes them feel like they are capable of even the most impossible feats as long as they have each other",
+                    "who always knows how to make them smile even after a long day, providing laughter and comfort in a dark world"
+                ] 
+            },
+
+            {
+                "role": "Mysterious Stranger",
+                "descriptions": [
+                    "who appears in random moments of their life, offering cryptic, but valuable, advice that they don't understand until when they need it most",
+                    "who they met in a moment of unexpected kindness, and they have been trying to repay the kindness offered ever since",
+                    "who offers pieces of information about the future in exchange for small favors",
+                    "who offers pieces of information about the past in exchange for small favors",
+                    "who offers pieces of information about the present in exchange for small favors",
+                    "who seems to know more about them than they know about themselves",
+                    "who randomly appears in their life at moments of great need, offering tokens of help for a secret"
+                ]    
+            },
         ]
 
         self.distinctive_features = [
             "a prominent scar across their face", 
             "a unique birthmark in the shape of a star", 
-            "piercing green eyes that seem to see through people", 
+            "freckles that form a recognizable constellation",
+            "piercing colored eyes that shine in the dark", 
             "a distinctive tattoo that holds personal significance",
             "an unusual hairstyle that sets them apart",
             "a prosthetic limb that they have adapted to use with great skill", 
-            "a distinctive way of dressing that reflects their personality", 
-            "a unique accent or way of speaking",
+            "a distinctive way of dressing that makes them easily identifiable", 
+            "a unique accent or way of speaking that is different from those around them",
             "a physical deformity that they have learned to embrace as part of their identity", 
             "a signature piece of jewelry that they always wear", 
             "a distinctive laugh that is instantly recognizable", 
-            "a unique mannerism that others find endearing or unsettling"
+            "a unique mannerism that others find endearing or unsettling",
+            "a unique hairstyle that only they can pull off",
+            "colored hair that is not common in their world",
+            "no eyebrows or eyelashes",
+            "a voice that is unusually deep or high-pitched",
+            "an extra finger that they have learned to use with surprising dexterity",
         ]
 
         self.fatal_flaws = [
@@ -761,19 +842,36 @@ class LoreGenerator:
             "a need for control that leads to micromanaging and alienating allies", 
             "a tendency to take unnecessary risks in pursuit of their goals", 
             "a deep-seated insecurity that undermines their confidence", 
-            "a stubborn refusal to change their ways even when it's clear they are wrong"
+            "a stubborn refusal to change their ways even when it's clear they are wrong",
+            "a tendency to overthink and second-guess themselves to the point of inaction",
+            "a fear of failure that prevents them from taking necessary risks or pursuing their true potential",
+            "a tendency to forgive too easily, allowing others to take advantage of their kindness and generosity",
+            "a fear of intimacy that prevents them from forming close relationships",
+            "a tendency to overcomplicate things, making simple problems more difficult than they need to be",
+            "an obsession with needing to be wanted or needed by others, leading them to make sacrifices that ultimately harm themselves or those they care about",
+            "a tendency to overthink and analyze every situation from a negative perspective, leading to believing the worst about themselves and others, even when there is evidence to the contrary",
+            "a stubbornness that prevents them from admitting when they are wrong or accepting help from others, even when it would be in their best interest to do so",
+            "a tendency to get aggressive or defensive when they feel threatened, leading to escalating conflicts that could have been avoided with better communication or emotional regulation",
+            "a fear of being with someone that doesn't love them back, leading to unhealthy attachments or sabotaging potential relationships out of fear of rejection"
         ]
 
         self.greatest_fears = [
-            "the loss of a loved one", 
-            "being alone", 
-            "failure", 
-            "betrayal", 
-            "death",
-            "losing their sense of identity", 
+            "being abandoned by those they care about with no explanation or warning", 
+            "feeling excruciating loneliness even when surrounded by others", 
+            "failure after putting everything and everyone on the line to achieve a goal they believed in", 
+            "betrayal by someone that had been with them from the beginning and had been trusted implicitly", 
+            "death to someone that didn't deserve it",
+            "losing their sense of identity from a toxic relationship or environment", 
             "being powerless to protect those they care about", 
-            "facing the consequences of their actions", 
-            "being forgotten or erased from history"
+            "being powerful but unable to control their abilities or influence, causing unintended harm to others", 
+            "being powerful, but powerless in the face of overwhelming odds or threats, causing devastation despite their best efforts",
+            "facing the consequences of their actions that they believed were justified", 
+            "being forgotten or erased from history despite their significant contributions and sacrifices",
+            "never living up to their potential despite their best efforts",
+            "never living up to the expectations they set for themselves",
+            "facing the inevitability of their own humanity and mortality",
+            "having to make a choice between two equally difficult paths",
+            "having to make a choice between saving someone they love and achieving a goal that could save many others",
         ]
 
         self.internal_conflicts = [
@@ -783,17 +881,30 @@ class LoreGenerator:
             "torn between their desire for power and their fear of losing themselves in the process",
             "struggling to reconcile their public persona with their true self", 
             "torn between their desire for acceptance and their need for independence", 
-            "grappling with feelings of inadequacy while trying to prove themselves to others"
+            "grappling with feelings of inadequacy while trying to prove themselves to others",
+            "struggling to balance their desire for a normal life with the responsibilities that come with their unique abilities or destiny",
+            "torn between their desire to help others and their need to protect themselves from being taken advantage of or hurt in the process",
+            "grappling with feelings of loneliness and isolation while trying to connect with others and form meaningful relationships",
+            "struggling to find a sense of purpose and belonging in a world that isn't accepting of them",
+            "torn between being honest with themselves and others about their flaws and mistakes, and the fear of being judged or rejected for those imperfections",
+            "afraid of admitting their own vulnerabilities and weaknesses, leading to a constant internal battle between wanting to be strong and independent, and the need for support and connection with others",
+            "struggling with accepting their role in society and the expectations that come with it, while also trying to forge their own path and identity outside of those constraints",
+            "torn between helping others and the fear of being taken advantage of, leading to a constant battle of whether to offer help or prioritize their own safety in a world that requires both compassion and caution"
         ]
 
         self.hidden_truths = [
-            "they are the heir to a powerful and dangerous legacy that they were unaware of", 
-            "they have a hidden talent or ability that they have yet to discover", 
-            "they were manipulated into their current situation by someone they trusted", 
-            "they have a secret past that they have been trying to keep hidden",
-            "they are connected to a larger conspiracy or plot that they are only beginning to uncover", 
-            "they have a hidden connection to a powerful figure or organization that they are unaware of", 
-            "they are destined for a great and dangerous fate that they have been trying to avoid"
+            "they are the heir to a powerful and dangerous legacy that they must keep hidden to protect themselves and those they care about until they have mastered their abilities", 
+            "they have a hidden talent or ability that they have secretly been practicing and perfecting in secret, waiting for the right moment to reveal it to the world", 
+            "they were manipulated into their current situation by someone they trusted, and they are slowly realizing why they were chosen and what their purpose really is", 
+            "they have a secret past that they have been trying to keep hidden, but it is starting to become revealed in uncontrollable ways",
+            "they are connected to a larger conspiracy or plot that they have been involved in for a long time", 
+            "they have a hidden connection to a powerful figure or organization that they are unaware of, and all their actions have been influenced by this connection without them realizing it", 
+            "they are destined for a great and dangerous fate that they have been trying to understand since they were young enough to understand, but they have obstacles they don't yet know how to overcome",
+            "they are the sole survivor of a great and powerful bloodline or lineage that has unimaginable power, but they do not know how to access or control it without first learning the history of their ancestors",
+            "they have the ability to travel between different worlds or dimensions, but they do not understand the affect this has on their home dimension",
+            "they have a secret identity that they have to keep hidden, otherwise they will be targeted and hunted who seek to destroy or use them for their own purposes",
+            "they possess a powerful substance that could be used for great good or great evil, and could cause devastation if it falls into the wrong hands",
+            "they have the knowledge of a powerful secret, but they cannot remember what it is"
         ]
 
     def generate(self, archetype: Optional[Archetype] = None,
@@ -873,16 +984,22 @@ class LoreGenerator:
         
         key_relationships = []
         num_relationships = self.params.relationship_weight
+        used_roles = set()
         
+
         for _ in range(num_relationships):
-            rel = random.choice(self.relationships)
+            available = [r for r in self.relationships if r["role"] not in used_roles]
+            if not available:
+                break
+            rel = random.choice(available)
+            used_roles.add(rel["role"])
             rel_name = random.choice(self.names[random.choice(list(Origin))])
-            
+
             key_relationships.append({
                 "name": rel_name,
-                "relationship": rel["relationship"],
-                "status": rel["status"]
-            })
+                "role": rel["role"],
+                "description": random.choice(rel["descriptions"])
+            }) 
 
         distinctive_features = random.choice(self.distinctive_features)
 
