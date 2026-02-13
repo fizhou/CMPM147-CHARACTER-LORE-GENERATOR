@@ -33,7 +33,6 @@ class LoreParameters:
     complexity_weight: int = 3 # 1-5
     relationship_weight: int = 2 # 1-5
     mystery_factor: float = 0.3 # 0-1
-    power_scale: int = 3 # 1-5
 
     @classmethod
     def from_json(cls, filepath: str) -> 'LoreParameters':
@@ -60,7 +59,7 @@ class LoreParameters:
     @classmethod
     def epic_villain(cls) -> 'LoreParameters':
         """Preset for Epic Villain Archetype"""
-        return cls(tragedy_weight = 0.6, complexity_weight = 5, relationship_weight = 3, power_scale = 5)
+        return cls(tragedy_weight = 0.6, complexity_weight = 5, relationship_weight = 3)
 
 @dataclass
 class CharacterLore:

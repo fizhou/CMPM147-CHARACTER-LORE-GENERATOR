@@ -10,8 +10,7 @@ params = LoreParameters(
     tragedy_weight = 0.5,
     complexity_weight = 3,
     relationship_weight = 2,
-    mystery_factor = 0.3,
-    power_scale = 3
+    mystery_factor = 0.3
 )
 
 generator = LoreGenerator(params)
