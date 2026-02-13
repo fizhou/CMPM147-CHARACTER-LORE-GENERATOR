@@ -1,6 +1,10 @@
 # Character Lore Generator
 A generative tool that creates rich, coherent character backstories with personality traits, motivations, relationships, defining moments, and hidden secrets.
 
+## How To Use
+
+To use this program, simply 
+
 ## What It Generates
 - **Identity**: Name, age, archetype, personality traits, distinctive features
 - **Background**: Origin, birthplace
@@ -77,10 +81,6 @@ Adjustable parameters include core parameters and the number of characters gener
 4. **mystery_factor** (0.0-1.0, default 0.3)
    - Probability of hidden truths/secrets
    - Higher = more mysterious, unexplained elements
-
-5. **power_scale** (1-5, default 3)
-   - Character's power/influence level
-   - Affects goal descriptions and scope 
 
 ### Number of Characters Generated
 
